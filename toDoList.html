@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    input,
+    textarea,
+    button {
+        display: block;
+    }
+</style>
+
+<body>
+    <label for="title">title</label>
+    <input type="text" name="title" id="title">
+
+    <label for="todo">todo</label>
+    <textarea name="todo" id="todo" cols="30" rows="10"></textarea>
+
+
+
+    <button onclick="toevoegen()">Toevoegen</button>
+
+    <ul id="list">
+
+
+
+    </ul>
+
+
+    <script>
+        var title = document.querySelector("#title");
+        var todo = document.querySelector("#todo");
+        var list = document.querySelector("#list");
+
+        var arrayTodoList = [];
+
+        function toevoegen() {
+
+            var inhoudTitle = title.value;
+            var inhoudTodo = todo.value;
+
+
+            var objectTodo = {
+                titel: inhoudTitle,
+                todo: inhoudTodo
+            }
+
+
+            arrayTodoList.push(objectTodo);
+
+
+            var html = " ";
+            for (var i = 0; i < arrayTodoList.length; i++) {
+
+                html += "<li>" + "<strong>" + arrayTodoList[i].titel + "</strong>" + " " + arrayTodoList[i].todo + "</li>";
+            }
+
+            list.innerHTML = html;
+
+        }
+    </script>
+
+</body>
+
+</html>
